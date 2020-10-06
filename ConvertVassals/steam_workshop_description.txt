@@ -10,27 +10,47 @@ This mod allows you to send demand letters to every vassal that has more than a 
 
 You recieve the same chance of converting as the base game, and face the same penalties (opinion, gold, and favours) should they refuse.
 
-
-[h1] Change Log [/h1]
-[code]
-1.0.2
-  - Fixed conversion chance calculation not working right
-  - un-spaghettified code
-  - Prevented decision from sending demands to people who said they hated your guts at your last feast
-  - added a random chance for them to convert any ways
-  - went to kindergarten and learned how to spell heathen
-  - removed horse again
-1.0.1
-  - sending scrolls poorly scribbled by a low-born, with 1 gold piece included in the messenger bag, with the message 'reap what thou sow, or ELSE' to all of your vassals should negatively how pious you are, but it shouldn't cast your religion into obscurity, lowered piety cost now 3 piety per hethen vassal down from 500 flat cost 
-  - stopped the decision from spamming your error log with nonsense about you being inbred, not that you look there regularly any ways, or that you're not inbred
-  - removed strange horse popup
-  - flavored my spaghetti code with flavor text
-  - actually made the decision say how many vassals are hethens and how much they're going to grift you when they say no
-  - lowered time between conversions to 90 days, keep in mind people refuse to convert for 15 years after you demand them. Same for vanilla.
+[h1] Achievement Compatibility [/h1]
+[code][noparse]Achievement Compatible: ❌ 1.1.2[/noparse]
 [/code]
 
+[h1] Available Languages [/h1]
+[table]
+    [tr]
+        [th]File Name[/th]
+        [th]Compatible with other mods?[/th]
+    [/tr]
+    [tr]
+        [td]English[/td]
+        [td]✔[/td]
+    [/tr]
+    [tr]
+		[td]Français[/td]
+		[td]❌[/td]
+    [/tr]
+    [tr]
+        [td]Deutsch[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]한국어 / 조선말[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]Pусский[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]汉语[/td]
+        [td]❌[/td]
+    [/tr]
+    [tr]
+        [td]Español[/td]
+        [td]❌[/td]
+    [/tr]
+[/table]
+
 [h1]What does this mod change in my game files?[/h1]
-This mod does so by modifying the following files:
 [table]
     [tr]
         [th]File Name[/th]
@@ -61,3 +81,34 @@ This mod does so by modifying the following files:
 		[td]✔[/td]
     [/tr]
 [/table]
+
+[h1] Change Log [/h1]
+[code]
+1.0.2
+  - Fixed conversion chance calculation not working right
+  - un-spaghettified code
+  - Prevented decision from sending demands to people who said they hated your guts at your last feast
+  - added a random chance for them to convert any ways
+  - went to kindergarten and learned how to spell heathen
+  - removed horse again
+1.0.1
+  - sending scrolls poorly scribbled by a low-born, with 1 gold piece included in the messenger bag, with the message 'reap what thou sow, or ELSE' to all of your vassals should negatively how pious you are, but it shouldn't cast your religion into obscurity, lowered piety cost now 3 piety per hethen vassal down from 500 flat cost 
+  - stopped the decision from spamming your error log with nonsense about you being inbred, not that you look there regularly any ways, or that you're not inbred
+  - removed strange horse popup
+  - flavored my spaghetti code with flavor text
+  - actually made the decision say how many vassals are hethens and how much they're going to grift you when they say no
+  - lowered time between conversions to 90 days, keep in mind people refuse to convert for 15 years after you demand them. Same for vanilla.
+[/code]
+
+[h1] Issues, Suggestions, and Translations [/h1]
+[list]
+[*] If you have any issues please submit an issue report on github.
+[*] If you would like to submit a translation for any missing languages please submit them through github or by linking them below.
+[*] If you have a suggestion please leave it below or on github.
+[/list]
+
+[h1] Non-Steam Users [/h1]
+If you want to download and use this mod without steam you can download it on github.
+
+[h1] Github [/h1]
+[url=https://github.com/DekuDesu/ConvertAllVassals_CKIII] Prevent Wandering Mod Github [/url]
