@@ -1,0 +1,4 @@
+﻿
+has_enough_gold_for_mass_convert = {
+	gold > min_gold_required_for_conversion
+}

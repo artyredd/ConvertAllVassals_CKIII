@@ -1,0 +1,37 @@
+﻿demand_conversion_vassal_ruler_interaction_effect_custom = {
+	demand_conversion_interaction_effect = yes
+	hidden_effect = {
+		if = {
+			limit = {
+				exists = scope:recipient.capital_county
+				scope:recipient.capital_county.faith = scope:recipient.faith
+			}
+			save_scope_value_as = {
+				name = convert_capital
+				value = yes
+			}
+		}
+	}
+	if = {
+		limit = { 
+			scope:actor = {
+				has_strong_hook = scope:recipient
+			} 
+		}
+		scope:actor = {
+			use_hook = scope:recipient
+		}
+	}
+	else_if = {
+		limit = { scope:recipient = { is_imprisoned_by = scope:actor } }
+		scope:recipient = { release_from_prison = yes }
+	}
+	#Negative opinions
+	scope:recipient = {
+		add_opinion = {
+			modifier = demanded_my_conversion_opinion
+			target = scope:actor
+			opinion = -10
+		}
+	}
+}

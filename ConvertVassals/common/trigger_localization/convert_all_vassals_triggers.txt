@@ -1,0 +1,7 @@
+﻿no_hethen_vassals_trigger = {
+	global = custom_decision_fail_desc
+}
+
+has_enough_gold_for_mass_convert_trigger = {
+	global = custom_not_enough_money_desc
+}

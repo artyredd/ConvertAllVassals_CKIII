@@ -1,0 +1,167 @@
+﻿custom_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+
+	desc = custom_decision_desc
+	selection_tooltip = custom_decision_tooltip
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+	}
+
+	cost={
+		piety = { 
+			value = 3
+			multiply ={ 
+				value = number_of_heathen_vassals
+				desc = "Number of Vassals"
+			} 
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = custom_decision_fail_desc
+			any_vassal = {
+				NOT = { faith = ROOT.faith }
+			}
+		}
+		custom_description = {
+			text = custom_not_enough_money_desc
+			has_enough_gold_for_mass_convert = yes
+		}		
+	}
+
+	cooldown = { days = 90 }
+
+	effect = {
+		hidden_effect = {
+			#save scope
+			save_scope_as = actor
+
+			#iterate every vassal
+			every_vassal = {
+				limit = {
+					AND = {
+						#make sure they're not the same faith
+						NOT = { faith = ROOT.faith }
+						#make sure they don't have a cooldown
+						NOT = { has_character_flag = demand_conversion_cooldown }
+					}
+				}
+
+				#save scope, needed for demand conversion effect
+				save_scope_as = recipient
+
+				#set hook scope for convert interaction effect 
+				if = { 
+					limit = { 
+						scope:actor = { has_strong_hook = scope:recipient }
+					}
+					save_scope_value_as = {
+						name = hook
+						value = yes
+					}
+				}
+				set_variable = {
+					name = calculated_conversion_chance
+					value = calculate_conversion_chances_convert_all_decision
+				}
+				random = {
+					chance = scope:recipient.calculate_conversion_chances_convert_all_decision
+					add_character_flag = {
+						FLAG = convert_no_fail
+						days = 10
+					}
+					debug_log = "No Fail! Won Chance roll"
+				}
+				#debug_log = "Attempting Conversion"
+				#check to see if we are in an interation that has a scope? This is a problem for some reason
+				if = {
+					limit = {
+						OR = {
+							calculate_conversion_chances_convert_all_decision >= 50
+							has_character_flag = convert_no_fail
+						}
+					}
+					#debug_log = "Passed 50 value check"
+					#check to see if we convert, else, punish player
+					if = {
+						limit = { 
+							OR = {
+								has_character_flag = convert_no_fail
+								#auto accept if in prison, duh
+								is_imprisoned_by = scope:actor
+								#auto accept if they are actually willing to accept
+								calculate_conversion_chances_convert_all_decision >= 99
+							}
+						}
+						#debug_log = "Converting"
+						demand_conversion_vassal_ruler_interaction_effect_custom = yes
+					}
+					else = {
+						#debug_log = "Failed to Convert"
+						#debug_log = "failed to convert vassal"
+						#add character flag to prevent player from demanding conversion
+						#more than they could in the base game
+						scope:recipient = {
+							add_character_flag = {
+								FLAG = demand_conversion_cooldown
+								years = 15
+							}
+						}
+						
+						#punish player for being stupid
+						random_list = {
+							40 = { #They ask for gold
+								scope:actor = {
+									pay_short_term_gold = {
+										gold = 50
+										target = scope:recipient
+									}
+								}
+							}
+							40 = { #They ask for a favor
+								scope:actor = {
+									trigger_event = {
+										id = religious_interaction.2012
+									}
+								}
+							}
+							20 = { #Full refuse
+								scope:recipient = {
+									add_opinion = {
+										modifier = demanded_my_conversion_opinion
+										target = scope:actor
+										opinion = -10
+									}
+								}
+							}
+						}
+					}
+				}
+				else = {
+					#debug_log = "Failed to meet min 50 req"
+				}
+			}
+		}
+
+		custom_tooltip = custom_decision_effect_tooltip_4
+		custom_tooltip = custom_decision_effect_tooltip
+		custom_tooltip = custom_decision_effect_tooltip_1
+		custom_tooltip = custom_decision_effect_tooltip_2
+		custom_tooltip = custom_decision_effect_tooltip_5
+		custom_tooltip = custom_decision_effect_tooltip_6
+		custom_tooltip = custom_decision_effect_tooltip_9
+
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

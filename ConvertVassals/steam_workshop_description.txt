@@ -1,0 +1,63 @@
+[h1] Mass Convert All Vassals Decision [/h1]
+
+ONE TRICK the Pope doesn't want you to see!
+
+HATE clicking your vassals and MANUALLY converting their faith? Invent televangelism early.
+
+This mod allows you to see a break down of how likely your vassals are to convert to your religion if you were to send them a demand to convert.
+
+This mod allows you to send demand letters to every vassal that has more than a 50% chance of converting.
+
+You recieve the same chance of converting as the base game, and face the same penalties (opinion, gold, and favours) should they refuse.
+
+
+[h1] Change Log [/h1]
+[code]
+1.0.2
+  - Fixed conversion chance calculation not working right
+  - un-spaghettified code
+  - Prevented decision from sending demands to people who said they hated your guts at your last feast
+  - added a random chance for them to convert any ways
+  - went to kindergarten and learned how to spell heathen
+  - removed horse again
+1.0.1
+  - sending scrolls poorly scribbled by a low-born, with 1 gold piece included in the messenger bag, with the message 'reap what thou sow, or ELSE' to all of your vassals should negatively how pious you are, but it shouldn't cast your religion into obscurity, lowered piety cost now 3 piety per hethen vassal down from 500 flat cost 
+  - stopped the decision from spamming your error log with nonsense about you being inbred, not that you look there regularly any ways, or that you're not inbred
+  - removed strange horse popup
+  - flavored my spaghetti code with flavor text
+  - actually made the decision say how many vassals are hethens and how much they're going to grift you when they say no
+  - lowered time between conversions to 90 days, keep in mind people refuse to convert for 15 years after you demand them. Same for vanilla.
+[/code]
+
+[h1]What does this mod change in my game files?[/h1]
+This mod does so by modifying the following files:
+[table]
+    [tr]
+        [th]File Name[/th]
+        [th]Compatible with other mods?[/th]
+    [/tr]
+    [tr]
+        [td][code][noparse] common\decisions\convert_all_vassals_decisions.txt [/noparse][/code][/td]
+        [td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse] common\scripted_effects\22_interaction_effects.txt [/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse] localization\english\decisions_lll_english.txt [/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse] common\scripted_triggers\convert_all_vassals_triggers.txt [/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse] common\scripted_values\convert_all_vassals_values.txt [/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+    [tr]
+		[td][code][noparse] common\trigger_localization\convert_all_vassals_triggers.txt [/noparse][/code][/td]
+		[td]✔[/td]
+    [/tr]
+[/table]

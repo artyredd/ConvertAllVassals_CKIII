@@ -1,0 +1,335 @@
+﻿
+piety_cost_per_vassal = 3
+
+number_of_heathen_vassals = {
+	value = 0
+	every_vassal = {
+		limit = {
+			NOT = { faith = root.faith }
+		}
+		add = 1
+	}
+}
+
+max_gold_required_for_conversion = {
+	value = 50
+	multiply = number_of_heathen_vassals
+}
+
+min_gold_required_for_conversion = {
+	value = -200
+	add = max_gold_required_for_conversion
+}
+
+missing_gold_for_conversion = {
+	value = 0
+	add = min_gold_required_for_conversion
+	subtract = gold
+}
+
+calc_learning_difference = {
+	value = 0
+	add = scope:actor.learning
+	subtract = scope:recipient.learning
+}
+
+
+get_opinion_value_convert_all_decision = {
+	value = 0
+	if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value > 0
+				}
+				opinion = {
+					target = scope:actor
+					value <= 50
+				}
+			}
+			
+		}
+		add = 50
+	}
+	else_if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value > 50
+				}
+				opinion = {
+					target = scope:actor
+					value <= 75
+				}
+			}
+			
+		}
+		add = 75
+	}
+	else_if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value > 75
+				}
+			}
+			
+		}
+		add = 100
+	}
+
+	if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value < 0
+				}
+				opinion = {
+					target = scope:actor
+					value > -50
+				}
+			}
+			
+		}
+		subtract = 25
+	}
+	else_if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value < -25
+				}
+				opinion = {
+					target = scope:actor
+					value > -75
+				}
+			}
+			
+		}
+		subtract = 50
+	}
+	else_if = {
+		limit = {
+			AND = {
+				opinion = {
+					target = scope:actor
+					value < -75
+				}
+			}
+			
+		}
+		subtract = 100
+	}
+}
+
+calculate_conversion_chances_convert_all_decision = {
+	value = 00
+	#learning check
+	add = calc_learning_difference
+	#opinion check
+	add = get_opinion_value_convert_all_decision
+	#check for hook
+	if = { 
+		limit = { 
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+		add = 1000
+	}
+	if = { 
+		limit = { 
+			scope:actor = {
+				has_trait = savior
+			}
+		}
+		add = 30
+	}
+	if = { 
+		limit = { 
+			scope:actor = {
+				has_trait = divine_blood
+			}
+		}
+		add = 15
+	}
+	if = { 
+		limit = {
+			scope:recipient = {
+				has_trait = zealous
+			}
+		}
+		add = -50
+	}
+	if = { 
+		limit = { 
+			scope:recipient = {
+				has_trait = cynical
+			}
+		}
+		add = 30
+	}
+	if = { 
+		limit = { 
+			scope:recipient = {
+				has_trait = heresiarch
+			}
+		}
+		add = -100
+	}
+
+	if = { 
+		limit = { 
+			scope:actor.faith.fervor != scope:recipient.faith.fervor
+		}
+		add = {
+			value = scope:actor.faith.fervor
+			subtract = scope:recipient.faith.fervor
+		}
+	}
+
+	if = { 
+		limit = { 
+			AND = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:recipient.faith = {
+					religion = religion:islam_religion
+					has_doctrine_parameter = sanctioned_false_conversion
+				}
+			}
+		}
+		add = -20
+	}
+
+	if = { 
+		limit = {
+			AND = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:recipient.faith = {
+					NOT = { religion = religion:islam_religion }
+					has_doctrine_parameter = sanctioned_false_conversion
+				}
+			}
+		}
+		add = -20
+	}
+
+	if = { 
+		limit = { 
+			AND = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:recipient.faith = {
+					has_doctrine_parameter = tenet_adaptive_conversion_resistance
+				}
+			}
+		}
+		add = -20
+	}
+
+	if = { 
+		limit = {
+			AND = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:actor = {
+					refusing_conversion_is_crime_trigger = {
+						CHARACTER = scope:recipient
+					}
+				}
+			}
+		}
+		add = 50
+	}
+		
+	if = { 
+		limit = { 
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+		}
+		add = 10
+	}
+	if = { 
+		limit = { 
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+		}
+		add = 20
+	}
+}
+
+number_of_vassals_convert_decision_100 = {
+	value = 0
+	scope:actor = {
+		every_vassal = {
+			limit = {
+				AND = {
+					is_heritic = 1
+					calculate_conversion_chances_convert_all_decision >= 100
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+number_of_vassals_convert_decision_75 = {
+	value = 0
+	scope:actor = {
+		every_vassal = {
+			limit = {
+				AND = {
+					is_heritic = 1
+					AND = {
+						calculate_conversion_chances_convert_all_decision > 50
+						calculate_conversion_chances_convert_all_decision < 100
+					}
+				}
+				
+			}
+			add = 1
+		}
+	}
+}
+
+number_of_vassals_convert_decision_wont = {
+	value = 0
+	scope:actor = {
+		every_vassal = {
+			limit = {
+				AND = {
+					is_heritic = 1
+					calculate_conversion_chances_convert_all_decision < 50
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+is_heritic = {
+	value = 0
+	if = {
+		limit = {
+			NOT = { scope:recipient.faith = scope:actor.faith }
+		}
+		add = 1
+	}
+}
