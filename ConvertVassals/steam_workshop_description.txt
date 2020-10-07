@@ -34,7 +34,7 @@ You recieve the same chance of converting as the base game, and face the same pe
     [/tr]
     [tr]
         [td]한국어 / 조선말[/td]
-        [td]❌[/td]
+        [td]✔[/td]
     [/tr]
     [tr]
         [td]Pусский[/td]
@@ -84,6 +84,8 @@ You recieve the same chance of converting as the base game, and face the same pe
 
 [h1] Change Log [/h1]
 [code]
+1.0.2 minor
+	- Added Korean Translations [url=steamcommunity.com/profiles/76561198118536231/]big thanks to fuzzypurge[/url]
 1.0.2
   - Fixed conversion chance calculation not working right
   - un-spaghettified code
@@ -111,4 +113,4 @@ You recieve the same chance of converting as the base game, and face the same pe
 If you want to download and use this mod without steam you can download it on github.
 
 [h1] Github [/h1]
-[url=https://github.com/DekuDesu/ConvertAllVassals_CKIII] Prevent Wandering Mod Github [/url]
+[url=https://github.com/DekuDesu/ConvertAllVassals_CKIII] Convert All Vassals Mod Github [/url]
