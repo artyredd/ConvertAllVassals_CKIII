@@ -1,0 +1,19 @@
+﻿
+
+
+l_german:
+ custom_decision:0 "Konvertiere Vasallen zur Religion"
+ custom_decision_tooltip:2 "Lassen Sie Ihren Boten Einladungen an Ihre Vasallen senden, um offiziell die Bekehrung Ihrer Religion zu fordern"
+ custom_decision_desc:0 "Ihr Rat wird Boten an alle Vasallen im Reich senden und die Bekehrung zu Ihrer Religion fordern"
+ custom_decision_effect_tooltip:2 "Deine Boten werden verlangen, dass deine heidnischen [vassals|E] konvertieren zu deinem [faith|E]"
+ custom_decision_effect_tooltip_1:0 "Jeder deiner heidnischen [vassals|E] verlangt möglicherweise [gold_i|E] 50 als Buße oder maximal [gold_i|E][SCOPE.ScriptValue('max_gold_required_for_conversion')]"
+ custom_decision_effect_tooltip_2:0 "Jeder deiner heidnischen  [vassal|E] verliert möglicherweise #N -10 #![opinion|E] mit dir oder fordere einen gefallen von dir ein"
+ custom_decision_effect_tooltip_4:0 "Derzeit hast du #V [SCOPE.ScriptValue('number_of_heathen_vassals')] #! heidnische Vasallen"
+ custom_decision_effect_tooltip_5:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_100')] #! wird Konvertieren"
+ custom_decision_effect_tooltip_6:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_75')] #! sind wahrscheinlich bereit zu konvertieren"
+ custom_decision_effect_tooltip_9:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_wont')] #! sind nicht bereit oder werden nicht konvertieren, Ihre Höflinge werden keine Forderungen an sie senden"
+ custom_decision_confirm:0 "Konvertierung starten"
+ custom_decision_fail_desc:0 "Sie haben heidnische Vasallen"
+ NOT_custom_decision_fail_desc:0 "Du hast keine heidnischen Vasallen"
+ custom_not_enough_money_desc:0 "Du hast genug [gold_i|E]"
+ NOT_custom_not_enough_money_desc:0 "Du hast nicht genug [gold_i|E]"
