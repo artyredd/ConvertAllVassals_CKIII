@@ -1,0 +1,19 @@
+﻿
+
+
+l_italian:
+ custom_decision:0 "Converti i Vassalli ad una Religione"
+ custom_decision_tooltip:2 "Fai inviare ai tuoi vassalli un invito da parte dei tuoi messaggeri per richiedere formalmente la conversione alla tua religione"
+ custom_decision_desc:0 "Il tuo concilio invierà messaggeri a tutti i vassalli nel reame per richiedere la conversione alla tua religione"
+ custom_decision_effect_tooltip:2 "I tuoi messaggeri richiederanno ai tuoi [vassals|E] pagani di convertirsi al tuo [faith|E]"
+ custom_decision_effect_tooltip_1:0 "Ogni tuo [vassals|E] pagano potrebbe richiedere 50 [gold_i|E] come penitenza, oppure un massimo di [gold_i|E][SCOPE.ScriptValue('max_gold_required_for_conversion')]"
+ custom_decision_effect_tooltip_2:0 "Ogni [vassal|E] pagano potrebbe perdere #N -10 #![opinion|E] o chiedere un favore in cambio"
+ custom_decision_effect_tooltip_4:0 "Attualmente hai #V [SCOPE.ScriptValue('number_of_heathen_vassals')] #! vassalli pagani"
+ custom_decision_effect_tooltip_5:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_100')] #! si convertitranno"
+ custom_decision_effect_tooltip_6:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_75')] #! sono propensi alla conversione"
+ custom_decision_effect_tooltip_9:0 "#V [SCOPE.ScriptValue('number_of_vassals_convert_decision_wont')] #! non sono propensi alla conversione o non si convertiranno, i tuoi cortigiani non non manderanno loro le tue richieste"
+ custom_decision_confirm:0 "Inizia conversione"
+ custom_decision_fail_desc:0 "Hai dei vassalli pagani"
+ NOT_custom_decision_fail_desc:0 "Non hai vassalli pagani"
+ custom_not_enough_money_desc:0 "Hai abbastanza [gold_i|E]"
+ NOT_custom_not_enough_money_desc:0 "Non hai abbastanza [gold_i|E]"
