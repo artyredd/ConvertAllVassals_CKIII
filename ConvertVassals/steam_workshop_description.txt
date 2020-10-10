@@ -44,6 +44,10 @@ You recieve the same chance of converting as the base game, and face the same pe
         [td]Español[/td]
         [td]❌[/td]
     [/tr]
+    [tr]
+        [td]Italiano[/td]
+        [td]✔[/td]
+    [/tr]
 [/table]
 
 [h1]What does this mod change in my game files?[/h1]
@@ -80,6 +84,8 @@ You recieve the same chance of converting as the base game, and face the same pe
 
 [h1] Change Log [/h1]
 [code]
+1.0.2 minor
+	- Added Italian Translations big thanks to Pyrox (Pyr0x1)
 1.0.2 minor
 	- Added German Translations big thanks to Phan-Cy!
 1.0.2 minor
