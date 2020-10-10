@@ -26,7 +26,7 @@ You recieve the same chance of converting as the base game, and face the same pe
     [/tr]
     [tr]
         [td]Deutsch[/td]
-        [td]❌[/td]
+        [td]✔[/td]
     [/tr]
     [tr]
         [td]한국어 / 조선말[/td]
@@ -80,6 +80,8 @@ You recieve the same chance of converting as the base game, and face the same pe
 
 [h1] Change Log [/h1]
 [code]
+1.0.2 minor
+	- Added German Translations big thanks to Phan-Cy!
 1.0.2 minor
 	- Added Russian Translations [url=steamcommunity.com/id/sergo02232/]big thanks to vlsergey[/url]
 1.0.2 minor
